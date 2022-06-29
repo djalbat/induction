@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/djalbat/induction",
+  "dependencies": [
+    "natural-numbers",
+    "minimal-propositional-logic"
+  ]
+}
