@@ -1,4 +1,5 @@
 
+
                      metastatement   ::=   [name] "=" naturalNumber ;
 
  

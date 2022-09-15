@@ -1,8 +1,13 @@
-Metavariables R,S,T(NaturalNumber) : Statement
+Metavariable R:Statement
+Metavariable S:Statement
+Metavariable T(NaturalNumber):Statement
 
-Metavariables ρ,σ(NaturalNumber),τ(NaturalNumber) : Context
+Metavariable ρ:Context
+Metavariable σ(NaturalNumber):Context
+Metavariable τ(NaturalNumber):Context
 
-Variables k,n:NaturalNumber
+Variable k:NaturalNumber
+Variable n:NaturalNumber
 
 Metatheorem (T(zero))
   P(zero)
