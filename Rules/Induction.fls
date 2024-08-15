@@ -1,13 +1,13 @@
+Variable k:ℕ
+Variable n:ℕ
+
 Metavariable R:Statement
 Metavariable S:Statement
-Metavariable T(NaturalNumber):Statement
+Metavariable T(ℕ):Statement
 
 Metavariable ρ:Context
-Metavariable σ(NaturalNumber):Context
-Metavariable τ(NaturalNumber):Context
-
-Variable k:NaturalNumber
-Variable n:NaturalNumber
+Metavariable σ(ℕ):Context
+Metavariable τ(ℕ):Context
 
 Metatheorem (T(zero))
   P(zero)
@@ -18,33 +18,33 @@ Metatheorem (T(successor(k)))
   P(successor(k))
   Proof
     P(k) from T(k)
-    P(k) => P(successor(k)) from S(k)
+    P(k) ⇒ P(successor(k)) from S(k)
   Therefore
     P(successor(k)) by ModusPonens
 
 Rule (Induction)
   Premises
-    ρ |- R::P(zero)
-    σ(k) |- S(k)::P(k) => P(successor(k))
+    ρ ⊧ R :: P(zero)
+    σ(k) ⊧ S(k) :: (P(k) ⇒ P(successor(k)))
   Conclusion
-    τ(n) |- T(n)::P(n)
+    τ(n) ⊧ T(n) :: P(n)
   Proof
-    Let τ(zero) = R::P(zero)
-    Let τ(successor(k)) = S(k)::P(k) => P(successor(k)), T(k)::P(k)
-    (n = zero) \/ (n = successor(k))
-    Suppose
+    τ(zero) = R :: P(zero)
+    τ(successor(k)) = S(k) :: P(k) ⇒ P(successor(k)), T(k) :: P(k)
+    Premise
       n = zero
-    Then
-      τ(zero) |- T(z)::P(zero)
     Hence
-      τ(n) |- T(n)::P(n)
-    n = zero => T(n) |- T(n)::P(n)
-    Suppose
+      τ(zero) ⊧ T(zero) :: P(zero)
+    Then
+      τ(n) ⊧ T(n) :: P(n)
+    n = zero ⇒ τ(n) ⊧ T(n) :: P(n)
+    Premise
       n = successor(k)
-    Then
-      τ(successor(k)) |- T(successor(k))::P(successor(k))
     Hence
-      τ(n) |- T(n)::P(n)
-    n = successor(k) => T(n) |- T(n)::P(n)
+      τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
+    Then
+      τ(n) ⊧ T(n) :: P(n)
+    n = successor(k) ⇒ τ(n) ⊧ T(n) :: P(n)
+    n = zero ∨ n = successor(k) from ZeroOrSuccessor
   Therefore
-    τ(n) |- T(n)::P(n) by ProofByCases
+    τ(n) ⊧ T(n) :: P(n) by ProofByCases

@@ -1,11 +1,7 @@
 # Induction
 
-A derivation of the principle of induction for [Occam](https://occam.science).
-
-## Resources
-
-* [All Natural Numbers are either Even or Odd](https://static.djalbat.com/ANNaeEoO.pdf)
+Induction for [Occam](https://occam.science).
 
 ## Contact
 
-* http://djalbat.com
+* https://djalbat.com
