@@ -1,13 +1,13 @@
 Variable k:ℕ
 Variable n:ℕ
 
-Metavariable R:Statement
-Metavariable S:Statement
-Metavariable T(ℕ):Statement
+Metavariable R:Label
+Metavariable S(ℕ):Label
+Metavariable T(ℕ):Label
 
-Metavariable ρ:Context
-Metavariable σ(ℕ):Context
-Metavariable τ(ℕ):Context
+#Metavariable ρ:Context
+#Metavariable σ(ℕ):Context
+#Metavariable τ(ℕ):Context
 
 Metatheorem (T(zero))
   P(zero)
