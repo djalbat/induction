@@ -1,13 +1,15 @@
 Variable k:ℕ
 Variable n:ℕ
 
-Metavariable R:Label
-Metavariable S(ℕ):Label
-Metavariable T(ℕ):Label
+Metavariable ρ:Frame
+Metavariable σ(ℕ):Frame
+Metavariable τ(ℕ):Frame
 
-#Metavariable ρ:Context
-#Metavariable σ(ℕ):Context
-#Metavariable τ(ℕ):Context
+Metavariable R:Reference
+Metavariable S(ℕ):Reference
+Metavariable T(ℕ):Reference
+
+Metavariable P(ℕ):Statement
 
 Metatheorem (T(zero))
   P(zero)
@@ -22,15 +24,44 @@ Metatheorem (T(successor(k)))
   Therefore
     P(successor(k)) by ModusPonens
 
+Rule (BaseCase)
+  Premise
+    ρ ⊧ R :: P(zero)
+  Conclusion
+    τ(zero) ⊧ ...ρ ⇒ τ(zero) ⊧ T(zero) :: P(zero)
+  Proof
+    Premise
+      τ(zero) ⊧ ...ρ
+    Then
+      τ(zero) ⊧ T(zero) :: P(zero)
+    τ(zero) ⊧ ...ρ ⇒ τ(zero) ⊧ T(zero) :: P(zero)
+  Therefore
+    τ(zero) ⊧ ...ρ ⇒ τ(zero) ⊧ T(zero) :: P(zero)
+
+Rule (InductionStep)
+  Premise
+    σ(k) ⊧ S(k) :: (P(k) ⇒ P(successor(k)))
+  Conclusion
+    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k) ⇒ τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
+  Proof
+    Premise
+      τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
+    Then
+      τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
+  Therefore
+    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k) ⇒ τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
+
+###
 Rule (Induction)
   Premises
     ρ ⊧ R :: P(zero)
-    σ(k) ⊧ S(k) :: (P(k) ⇒ P(successor(k)))
   Conclusion
     τ(n) ⊧ T(n) :: P(n)
   Proof
-    τ(zero) = R :: P(zero)
-    τ(successor(k)) = S(k) :: P(k) ⇒ P(successor(k)), T(k) :: P(k)
+    τ(zero) = ρ
+    τ(zero) ⊧ T(zero) :: P(zero)
+    τ(successor(k)) = T(k) :: P(k), ...σ(k)
+    τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
     Premise
       n = zero
     Hence
