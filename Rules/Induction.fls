@@ -25,43 +25,45 @@ Metatheorem (T(successor(k)))
     P(successor(k)) by ModusPonens
 
 Rule (BaseCase)
-  Premise
+  Premises
     ρ ⊧ R :: P(zero)
+    τ(zero) ⊧ ...ρ
   Conclusion
-    τ(zero) ⊧ ...ρ ⇒ τ(zero) ⊧ T(zero) :: P(zero)
+    τ(zero) ⊧ T(zero) :: P(zero)
+  Proof
+    τ(zero) ⊧ T(zero) :: P(zero)
+
+Rule (InductionStep)
+  Premises
+    σ(k) ⊧ S(k) :: (P(k) ⇒ P(successor(k)))
+    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
+  Conclusion
+    τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
+  Proof
+    τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
+
+Rule (Induction)
+  Premises
+    ρ ⊧ R :: P(zero)
+    σ(k) ⊧ S(k) :: (P(k) ⇒ P(successor(k)))
+  Conclusion
+    τ(n) ⊧ T(n) :: P(n)
   Proof
     Premise
       τ(zero) ⊧ ...ρ
     Then
-      τ(zero) ⊧ T(zero) :: P(zero)
-    τ(zero) ⊧ ...ρ ⇒ τ(zero) ⊧ T(zero) :: P(zero)
-  Therefore
-    τ(zero) ⊧ ...ρ ⇒ τ(zero) ⊧ T(zero) :: P(zero)
-
-Rule (InductionStep)
-  Premise
-    σ(k) ⊧ S(k) :: (P(k) ⇒ P(successor(k)))
-  Conclusion
-    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k) ⇒ τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
-  Proof
+      τ(zero) ⊧ T(zero) :: P(zero) by BaseCase
+    τ(zero) ⊧ ...ρ ⇒ τ(zero) ⊧ T(zero) :: P(zero) by ImplicationIntroduction
     Premise
       τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
     Then
-      τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
+      τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k)) by InductionStep
+    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k) ⇒ τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k)) by ImplicationIntroduction
+    n = zero ∨ n = successor(k) from ZeroOrSuccessor
   Therefore
-    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k) ⇒ τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
+    τ(n) ⊧ T(n) :: P(n) by ProofByCases
 
 ###
-Rule (Induction)
-  Premises
-    ρ ⊧ R :: P(zero)
-  Conclusion
-    τ(n) ⊧ T(n) :: P(n)
-  Proof
-    τ(zero) = ρ
-    τ(zero) ⊧ T(zero) :: P(zero)
-    τ(successor(k)) = T(k) :: P(k), ...σ(k)
-    τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
     Premise
       n = zero
     Hence
@@ -77,5 +79,3 @@ Rule (Induction)
       τ(n) ⊧ T(n) :: P(n)
     n = successor(k) ⇒ τ(n) ⊧ T(n) :: P(n)
     n = zero ∨ n = successor(k) from ZeroOrSuccessor
-  Therefore
-    τ(n) ⊧ T(n) :: P(n) by ProofByCases
