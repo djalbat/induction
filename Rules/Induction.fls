@@ -63,6 +63,23 @@ Rule (Induction)
   Therefore
     τ(n) ⊧ T(n) :: P(n) by ProofByCases
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ###
     Premise
       n = zero
