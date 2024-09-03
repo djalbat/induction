@@ -43,56 +43,42 @@ Rule (InductionStep)
     τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
 
 Rule (Induction)
-  Premises
+  Premise
     ρ ⊧ R :: P(zero)
-    σ(k) ⊧ S(k) :: (P(k) ⇒ P(successor(k)))
   Conclusion
     τ(n) ⊧ T(n) :: P(n)
   Proof
     Premise
       τ(zero) ⊧ ...ρ
-    Then
+    Hence
       τ(zero) ⊧ T(zero) :: P(zero) by BaseCase
-    τ(zero) ⊧ ...ρ ⇒ τ(zero) ⊧ T(zero) :: P(zero) by ImplicationIntroduction
-    Premise
-      τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
     Then
-      τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k)) by InductionStep
-    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k) ⇒ τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k)) by ImplicationIntroduction
-    n = zero ∨ n = successor(k) from ZeroOrSuccessor
+      n is not defined 
+      n is free in τ(n) ⊧ T(n) :: P(n)
+      zero is not contained in τ(n) ⊧ T(n) :: P(n)
+      ∃n τ(n) ⊧ T(n) :: P(n) by ExistentialIntroduction
   Therefore
     τ(n) ⊧ T(n) :: P(n) by ProofByCases
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ###
+
+    τ(zero) ⊧ ...ρ ⇒ τ(zero) ⊧ T(zero) :: P(zero) by ImplicationIntroduction
+
+    n = zero ∨ n = successor(k) from ZeroOrSuccessor
+
+    σ(k) ⊧ S(k) :: (P(k) ⇒ P(successor(k)))
+
+    Premises
+      n = successor(k)
+      τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
+    Then
+      τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k)) by InductionStep
+    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k) ⇒ τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k)) by ImplicationIntroduction
     Premise
-      n = zero
+      τ(zero) ⊧ ...ρ
     Hence
       τ(zero) ⊧ T(zero) :: P(zero)
     Then
       τ(n) ⊧ T(n) :: P(n)
-    n = zero ⇒ τ(n) ⊧ T(n) :: P(n)
-    Premise
-      n = successor(k)
-    Hence
-      τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
-    Then
-      τ(n) ⊧ T(n) :: P(n)
-    n = successor(k) ⇒ τ(n) ⊧ T(n) :: P(n)
-    n = zero ∨ n = successor(k) from ZeroOrSuccessor
+
