@@ -24,61 +24,56 @@ Metatheorem (T(successor(k)))
   Therefore
     P(successor(k)) by ModusPonens
 
-Rule (BaseCase)
-  Premises
-    ρ ⊧ R :: P(zero)
-    τ(zero) ⊧ ...ρ
-  Conclusion
-    τ(zero) ⊧ T(zero) :: P(zero)
-  Proof
-    τ(zero) ⊧ T(zero) :: P(zero)
-
-Rule (InductionStep)
-  Premises
-    σ(k) ⊧ S(k) :: (P(k) ⇒ P(successor(k)))
-    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
-  Conclusion
-    τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
-  Proof
-    τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
-
+###
 Rule (Induction)
-  Premise
+  Premises
     ρ ⊧ R :: P(zero)
+    σ(k) ⊧ S(k) :: (P(k) ⇒ P(successor(k)))
+    τ(zero) ⊧ ...ρ
+    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
   Conclusion
     τ(n) ⊧ T(n) :: P(n)
   Proof
+    τ(zero) ⊧ T(zero) :: P(zero)
+    τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
     Premise
-      τ(zero) ⊧ ...ρ
+      n = zero
     Hence
-      τ(zero) ⊧ T(zero) :: P(zero) by BaseCase
+      τ(zero) ⊧ ...ρ
+      τ(zero) ⊧ T(zero) :: P(zero)
     Then
-      n is not defined 
-      n is free in τ(n) ⊧ T(n) :: P(n)
-      zero is not contained in τ(n) ⊧ T(n) :: P(n)
-      ∃n τ(n) ⊧ T(n) :: P(n) by ExistentialIntroduction
+      τ(n) ⊧ T(n) :: P(n)
+    n = zero ⇒ τ(n) ⊧ T(n) :: P(n)
+    Premise
+      n = successor(k)
+    Hence
+      τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
+      τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
+    Then
+      τ(n) ⊧ T(n) :: P(n)
+    n = successor(k) ⇒ τ(n) ⊧ T(n) :: P(n)
+    n = zero ∨ n = successor(k) from ZeroOrSuccessor
   Therefore
     τ(n) ⊧ T(n) :: P(n) by ProofByCases
 
 
 ###
-
-    τ(zero) ⊧ ...ρ ⇒ τ(zero) ⊧ T(zero) :: P(zero) by ImplicationIntroduction
-
-    n = zero ∨ n = successor(k) from ZeroOrSuccessor
-
-    σ(k) ⊧ S(k) :: (P(k) ⇒ P(successor(k)))
-
-    Premises
-      n = successor(k)
-      τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
-    Then
-      τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k)) by InductionStep
-    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k) ⇒ τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k)) by ImplicationIntroduction
     Premise
-      τ(zero) ⊧ ...ρ
+      τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
     Hence
-      τ(zero) ⊧ T(zero) :: P(zero)
+      τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k)) by InductionStep
+      n is not defined 
+      n is contained in τ(n) ⊧ T(n) :: P(n)
+      n is free in τ(n) ⊧ T(n) :: P(n) by FreeVariable
+      successor(k) is not contained in τ(n) ⊧ T(n) :: P(n)
     Then
-      τ(n) ⊧ T(n) :: P(n)
+      ∃n τ(n) ⊧ T(n) :: P(n) by ExistentialIntroduction
+    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k) ⇒ ∃n τ(n) ⊧ T(n) :: P(n) by ImplicationIntroduction
+
+
+
+
+
+
+
 
