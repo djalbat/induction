@@ -24,56 +24,37 @@ Metatheorem (T(successor(k)))
   Therefore
     P(successor(k)) by ModusPonens
 
-###
 Rule (Induction)
   Premises
-    ρ ⊧ R :: P(zero)
-    σ(k) ⊧ S(k) :: (P(k) ⇒ P(successor(k)))
-    τ(zero) ⊧ ...ρ
-    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
+    ρ |= T(zero) :: P(zero)
+    σ(k) |= S(k) :: (P(k) ⇒ P(successor(k)))
   Conclusion
-    τ(n) ⊧ T(n) :: P(n)
+    ∃[τ(n)] (τ(n) |= T(n) :: P(n))
   Proof
-    τ(zero) ⊧ T(zero) :: P(zero)
-    τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
-    Premise
+    n = zero ∨ n = successor(k) by ZeroOrSuccessor
+    Suppose
       n = zero
     Hence
-      τ(zero) ⊧ ...ρ
-      τ(zero) ⊧ T(zero) :: P(zero)
+      [τ(zero)] is contained in (τ(zero) |= T(zero) :: P(zero))
+      ρ |= T(zero) :: P(zero)
+      [τ(zero)] is not defined
+      [τ(zero)] is free in (τ(zero) |= T(zero) :: P(zero)) by FreeMetavariable
+      [ρ] is not contained in (τ(zero) |= T(zero) :: P(zero))
+      ∃[τ(zero)] (τ(zero) |= T(zero) :: P(zero)) by MetaExistentialIntroduction
     Then
-      τ(n) ⊧ T(n) :: P(n)
-    n = zero ⇒ τ(n) ⊧ T(n) :: P(n)
-    Premise
+      ∃[τ(n)] (τ(n) |= T(n) :: P(n))
+    n = zero ⇒ ∃[τ(n)] (τ(n) |= T(n) :: P(n)) by ConditionalProof
+    Suppose
       n = successor(k)
     Hence
-      τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
-      τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k))
+      [τ(successor(k))] is contained in (τ(successor(k)) |= T(successor(k)) :: P(successor(k)))
+      σ(k), T(k) :: P(k) |= T(successor(k)) :: P(successor(k))
+      [τ(successor(k))] is not defined
+      [τ(successor(k))] is free in (τ(successor(k)) |= T(successor(k)) :: P(successor(k))) by FreeMetavariable
+      [σ(k), T(k) :: P(k)] is not contained in (τ(successor(k)) |= T(successor(k)) :: P(successor(k)))
+      ∃[τ(successor(k))] τ(successor(k)) |= T(successor(k)) :: P(successor(k)) by MetaExistentialIntroduction
     Then
-      τ(n) ⊧ T(n) :: P(n)
-    n = successor(k) ⇒ τ(n) ⊧ T(n) :: P(n)
-    n = zero ∨ n = successor(k) from ZeroOrSuccessor
+      ∃[τ(n)] (τ(n) |= T(n) :: P(n))
+    n = successor(k) ⇒ ∃[τ(n)] (τ(n) |= T(n) :: P(n)) by ConditionalProof
   Therefore
-    τ(n) ⊧ T(n) :: P(n) by ProofByCases
-
-
-###
-    Premise
-      τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k)
-    Hence
-      τ(successor(k)) ⊧ T(successor(k)) :: P(successor(k)) by InductionStep
-      n is not defined 
-      n is contained in τ(n) ⊧ T(n) :: P(n)
-      n is free in τ(n) ⊧ T(n) :: P(n) by FreeVariable
-      successor(k) is not contained in τ(n) ⊧ T(n) :: P(n)
-    Then
-      ∃n τ(n) ⊧ T(n) :: P(n) by ExistentialIntroduction
-    τ(successor(k)) ⊧ T(k) :: P(k), ...σ(k) ⇒ ∃n τ(n) ⊧ T(n) :: P(n) by ImplicationIntroduction
-
-
-
-
-
-
-
-
+    ∃[τ(n)] (τ(n) |= T(n) :: P(n)) by ProofByCases
