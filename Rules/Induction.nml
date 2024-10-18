@@ -11,12 +11,12 @@ Metavariable T(ℕ):Reference
 
 Metavariable P(ℕ):Statement
 
-Metatheorem (T(zero))
+MetaLemma (T(zero))
   P(zero)
   Proof
     P(zero) from R
 
-Metatheorem (T(successor(k)))
+MetaLemma (T(successor(k)))
   P(successor(k))
   Proof
     P(k) from T(k)
