@@ -35,11 +35,8 @@ Rule (Induction)
     Suppose
       n = zero
     Hence
-      [τ(zero)] is contained in τ(zero) |= T(zero) :: P(zero)
       ρ |= T(zero) :: P(zero)
-      [τ(zero)] is not defined
       [τ(zero)] is free in τ(zero) |= T(zero) :: P(zero) by FreeMetavariable
-      [ρ] is not contained in τ(zero) |= T(zero) :: P(zero)
       ∃[τ(zero)] τ(zero) |= T(zero) :: P(zero) by MetaExistentialIntroduction
     Then
       ∃[τ(n)] τ(n) |= T(n) :: P(n)
@@ -47,11 +44,8 @@ Rule (Induction)
     Suppose
       n = successor(k)
     Hence
-      [τ(successor(k))] is contained in τ(successor(k)) |= T(successor(k)) :: P(successor(k))
       σ(k), T(k) :: P(k) |= T(successor(k)) :: P(successor(k))
-      [τ(successor(k))] is not defined
       [τ(successor(k))] is free in τ(successor(k)) |= T(successor(k)) :: P(successor(k)) by FreeMetavariable
-      [σ(k), T(k) :: P(k)] is not contained in τ(successor(k)) |= T(successor(k)) :: P(successor(k))
       ∃[τ(successor(k))] τ(successor(k)) |= T(successor(k)) :: P(successor(k)) by MetaExistentialIntroduction
     Then
       ∃[τ(n)] τ(n) |= T(n) :: P(n)

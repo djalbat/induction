@@ -1,9 +1,9 @@
 {
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": "https://github.com/djalbat/induction",
   "dependencies": {
     "natural-numbers": "2.0",
-    "first-order-logic": "4.1",
+    "first-order-logic": "5.0",
     "minimal-propositional-logic": "5.0"
   }
 }
