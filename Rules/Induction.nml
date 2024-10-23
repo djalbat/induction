@@ -26,7 +26,7 @@ MetaLemma (T(successor(k)))
 
 Rule (Induction)
   Premises
-    ρ |= T(zero) :: P(zero)
+    ρ |= R :: P(zero)
     σ(k) |= S(k) :: (P(k) ⇒ P(successor(k)))
   Conclusion
     ∃[τ(n)] τ(n) |= T(n) :: P(n)
