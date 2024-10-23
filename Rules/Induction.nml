@@ -26,29 +26,29 @@ MetaLemma (T(successor(k)))
 
 Rule (Induction)
   Premises
-    ρ |= R :: P(zero)
-    σ(k) |= S(k) :: (P(k) ⇒ P(successor(k)))
+    [ρ] |= R :: P(zero)
+    [σ(k)] |= S(k) :: (P(k) ⇒ P(successor(k)))
   Conclusion
-    ∃[τ(n)] τ(n) |= T(n) :: P(n)
+    ∃[τ(n)] [τ(n)] |= T(n) :: P(n)
   Proof
     n = zero ∨ n = successor(k) by ZeroOrSuccessor
     Suppose
       n = zero
     Hence
-      ρ |= T(zero) :: P(zero)
-      [τ(zero)] is free in τ(zero) |= T(zero) :: P(zero) by FreeMetavariable
-      ∃[τ(zero)] τ(zero) |= T(zero) :: P(zero) by MetaExistentialIntroduction
+      [ρ] |= T(zero) :: P(zero)
+      [τ(zero)] is free in [τ(zero)] |= T(zero) :: P(zero) by FreeMetavariable
+      ∃[τ(zero)] [τ(zero)] |= T(zero) :: P(zero) by MetaExistentialIntroduction
     Then
-      ∃[τ(n)] τ(n) |= T(n) :: P(n)
-    n = zero ⇒ ∃[τ(n)] τ(n) |= T(n) :: P(n) by ConditionalProof
+      ∃[τ(n)] [τ(n)] |= T(n) :: P(n)
+    n = zero ⇒ ∃[τ(n)] [τ(n)] |= T(n) :: P(n) by ConditionalProof
     Suppose
       n = successor(k)
     Hence
-      σ(k), T(k) :: P(k) |= T(successor(k)) :: P(successor(k))
-      [τ(successor(k))] is free in τ(successor(k)) |= T(successor(k)) :: P(successor(k)) by FreeMetavariable
-      ∃[τ(successor(k))] τ(successor(k)) |= T(successor(k)) :: P(successor(k)) by MetaExistentialIntroduction
+      [σ(k), T(k) :: P(k)] |= T(successor(k)) :: P(successor(k))
+      [τ(successor(k))] is free in [τ(successor(k))] |= T(successor(k)) :: P(successor(k)) by FreeMetavariable
+      ∃[τ(successor(k))] [τ(successor(k))] |= T(successor(k)) :: P(successor(k)) by MetaExistentialIntroduction
     Then
-      ∃[τ(n)] τ(n) |= T(n) :: P(n)
-    n = successor(k) ⇒ ∃[τ(n)] τ(n) |= T(n) :: P(n) by ConditionalProof
+      ∃[τ(n)] [τ(n)] |= T(n) :: P(n)
+    n = successor(k) ⇒ ∃[τ(n)] [τ(n)] |= T(n) :: P(n) by ConditionalProof
   Therefore
-    ∃[τ(n)] τ(n) |= T(n) :: P(n) by ProofByCases
+    ∃[τ(n)] [τ(n)] |= T(n) :: P(n) by ProofByCases
