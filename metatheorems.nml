@@ -1,0 +1,23 @@
+Variable k:ℕ
+Variable n:ℕ
+
+Metavariable R:Reference
+Metavariable S(ℕ):Reference
+
+Metavariable MetaInduction(ℕ):Reference
+
+Metavariable P(ℕ):Statement
+
+Metatheorem (MetaInduction(zero))
+  P(zero)
+  Proof
+    P(zero) from R
+
+Metatheorem (MetaInduction(successor(k)))
+  P(successor(k))
+  Proof
+    P(k) from MetaInduction(k)
+    P(k) ⇒ P(successor(k)) from S(k)
+  Therefore
+    P(successor(k)) by ModusPonens
+

@@ -1,0 +1,48 @@
+Variable k:ℕ
+
+Metavariable ρ:Frame
+Metavariable μ:Frame
+
+Metavariable σ(ℕ):Frame
+Metavariable λ(ℕ):Frame
+Metavariable τ(ℕ):Frame
+
+Metavariable R:Reference
+
+Metavariable S(ℕ):Reference
+
+Metavariable P(ℕ):Statement
+
+Lemma (MetaBaseCase)
+  Suppose
+    ∃[ρ] [ρ] |= R :: P(zero)
+  Then
+    ∃[τ(zero)] [τ(zero)] |= MetaInduction(zero) :: P(zero)
+  Proof
+    Suppose
+      [μ] |= R :: P(zero)
+    Hence
+      [μ] |= MetaInduction(zero) :: P(zero)
+      [τ(zero)] is free in [τ(zero)] |= MetaInduction(zero) :: P(zero) by FreeMetavariable
+    Then
+      ∃[τ(zero)] [τ(zero)] |= MetaInduction(zero) :: P(zero) by MetaExistentialIntroduction
+    [ρ] is free in [ρ] |= R :: P(zero) by FreeMetavariable
+  Therefore
+    ∃[τ(zero)] [τ(zero)] |= MetaInduction(zero) :: P(zero) by MetaExistentialElimination
+
+Lemma (MetaInductionStep)
+  Suppose
+    ∃[σ(k)] [σ(k)] |= S(k) :: (P(k) ⇒ P(successor(k)))
+  Then
+    ∃[τ(successor(k))] [τ(successor(k))] |= MetaInduction(successor(k)) :: P(successor(k))
+  Proof
+    Suppose
+      [λ(k)] |= S(k) :: (P(k) ⇒ P(successor(k)))
+    Hence
+      [λ(k), MetaInduction(k) :: P(k)] |= MetaInduction(successor(k)) :: P(successor(k))
+      [τ(successor(k))] is free in [τ(successor(k))] |= MetaInduction(successor(k)) :: P(successor(k)) by FreeMetavariable
+    Then
+      ∃[τ(successor(k))] [τ(successor(k))] |= MetaInduction(successor(k)) :: P(successor(k)) by MetaExistentialIntroduction
+    [σ(k)] is free in [σ(k)] |= S(k) :: (P(k) ⇒ P(successor(k))) by FreeMetavariable
+  Therefore
+    ∃[τ(successor(k))] [τ(successor(k))] |= MetaInduction(successor(k)) :: P(successor(k)) by MetaExistentialElimination
