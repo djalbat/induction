@@ -20,4 +20,3 @@ Metatheorem (MetaInduction(successor(k)))
     P(k) ⇒ P(successor(k)) from S(k)
   Therefore
     P(successor(k)) by ModusPonens
-

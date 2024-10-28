@@ -5,10 +5,10 @@ Metavariable μ:Frame
 
 Metavariable σ(ℕ):Frame
 Metavariable λ(ℕ):Frame
+
 Metavariable τ(ℕ):Frame
 
 Metavariable R:Reference
-
 Metavariable S(ℕ):Reference
 
 Metavariable P(ℕ):Statement
