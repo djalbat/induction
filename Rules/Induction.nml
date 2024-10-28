@@ -14,25 +14,25 @@ Metavariable P(ℕ):Statement
 
 Rule (Induction)
   Premises
-    ∃[ρ] [ρ] |= R :: P(zero)
-    ∃[σ(k)] [σ(k)] |= S(k) :: (P(k) ⇒ P(successor(k)))
+    ∃[ρ] [ρ] |- R :: P(zero)
+    ∃[σ(k)] [σ(k)] |- S(k) :: (P(k) ⇒ P(successor(k)))
   Conclusion
-    ∃[τ(n)] [τ(n)] |= MetaInduction(n) :: P(n)
+    ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n)
   Proof
     n = zero ∨ n = successor(k) by ZeroOrSuccessor
     Suppose
       n = zero
     Hence
-      ∃[τ(zero)] [τ(zero)] |= MetaInduction(zero) :: P(zero) by MetaBaseCase
+      ∃[τ(zero)] [τ(zero)] |- MetaInduction(zero) :: P(zero) by MetaBaseCase
     Then
-      ∃[τ(n)] [τ(n)] |= MetaInduction(n) :: P(n)
-    n = zero ⇒ ∃[τ(n)] [τ(n)] |= MetaInduction(n) :: P(n) by ConditionalProof
+      ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n)
+    n = zero ⇒ ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n) by ConditionalProof
     Suppose
       n = successor(k)
     Hence
-      ∃[τ(successor(k))] [τ(successor(k))] |= MetaInduction(successor(k)) :: P(successor(k)) by MetaInductionStep
+      ∃[τ(successor(k))] [τ(successor(k))] |- MetaInduction(successor(k)) :: P(successor(k)) by MetaInductionStep
     Then
-      ∃[τ(n)] [τ(n)] |= MetaInduction(n) :: P(n)
-    n = successor(k) ⇒ ∃[τ(n)] [τ(n)] |= MetaInduction(n) :: P(n) by ConditionalProof
+      ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n)
+    n = successor(k) ⇒ ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n) by ConditionalProof
   Therefore
-    ∃[τ(n)] [τ(n)] |= MetaInduction(n) :: P(n) by ProofByCases
+    ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n) by ProofByCases
