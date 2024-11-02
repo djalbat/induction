@@ -1,0 +1,36 @@
+Variable k:ℕ
+Variable n:ℕ
+
+Metavariable ρ:Frame
+Metavariable σ(ℕ):Frame
+Metavariable τ(ℕ):Frame
+
+Metavariable R:Reference
+
+Metavariable S(ℕ):Reference
+Metavariable P(ℕ):Statement
+
+Rule (ExistentialInduction)
+  Premises
+    ∃[ρ] [ρ] |- R :: P(zero)
+    ∃[σ(k)] [σ(k)] |- S(k) :: (P(k) ⇒ P(successor(k)))
+  Conclusion
+    ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n)
+  Proof
+    n = zero ∨ n = successor(k) by ZeroOrSuccessor
+    Suppose
+      n = zero
+    Hence
+      ∃[τ(zero)] [τ(zero)] |- MetaInduction(zero) :: P(zero) by MetaBaseCase
+    Then
+      ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n)
+    n = zero ⇒ ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n) by ConditionalProof
+    Suppose
+      n = successor(k)
+    Hence
+      ∃[τ(successor(k))] [τ(successor(k))] |- MetaInduction(successor(k)) :: P(successor(k)) by MetaInductionStep
+    Then
+      ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n)
+    n = successor(k) ⇒ ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n) by ConditionalProof
+  Therefore
+    ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n) by ProofByCases

@@ -1,0 +1,17 @@
+Metavariable P:Statement
+
+Metavariable G:Reference
+
+Metavariable γ:Frame
+
+Rule (FramedExistentialIntroduction)
+  Premise
+    P
+  Conclusion
+    ∃[γ] [γ] |- G :: P
+
+Rule (FRamedExistentialElimination)
+  Premise
+    ∃[γ] [γ] |- G :: P
+  Conclusion
+    P
