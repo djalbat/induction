@@ -1,8 +1,8 @@
+Metavariable γ:Frame
+
 Metavariable P:Statement
 
 Metavariable G:Reference
-
-Metavariable γ:Frame
 
 Rule (FramedExistentialIntroduction)
   Premise

@@ -1,34 +1,13 @@
 Variable k:ℕ
 
-Metavariable ρ:Frame
-Metavariable μ:Frame
-
 Metavariable σ(ℕ):Frame
 Metavariable λ(ℕ):Frame
 
 Metavariable τ(ℕ):Frame
 
-Metavariable R:Reference
-Metavariable S(ℕ):Reference
+Metavariable S(ℕ):Reference 
 
 Metavariable P(ℕ):Statement
-
-Lemma (MetaBaseCase)
-  Suppose
-    ∃[ρ] [ρ] |- R :: P(zero)
-  Then
-    ∃[τ(zero)] [τ(zero)] |- MetaInduction(zero) :: P(zero)
-  Proof
-    Suppose
-      [μ] |- R :: P(zero)
-    Hence
-      [μ] |- MetaInduction(zero) :: P(zero)
-      [τ(zero)] is free in [τ(zero)] |- MetaInduction(zero) :: P(zero) by FreeMetavariable
-    Then
-      ∃[τ(zero)] [τ(zero)] |- MetaInduction(zero) :: P(zero) by MetaExistentialIntroduction
-    [ρ] is free in [ρ] |- R :: P(zero) by FreeMetavariable
-  Therefore
-    ∃[τ(zero)] [τ(zero)] |- MetaInduction(zero) :: P(zero) by MetaExistentialElimination
 
 Lemma (MetaInductionStep)
   Suppose
