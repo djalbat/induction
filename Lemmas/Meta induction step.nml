@@ -19,9 +19,9 @@ Lemma (MetaInductionStep)
       [λ(k)] |- S(k) :: (P(k) ⇒ P(successor(k)))
     Hence
       [λ(k), MetaInduction(k) :: P(k)] |- MetaInduction(successor(k)) :: P(successor(k))
-      [τ(successor(k))] is free in [τ(successor(k))] |- MetaInduction(successor(k)) :: P(successor(k)) by FreeMetavariable
+      [τ(successor(k))] free in [τ(successor(k))] |- MetaInduction(successor(k)) :: P(successor(k)) by FreeMetavariable
     Then
       ∃[τ(successor(k))] [τ(successor(k))] |- MetaInduction(successor(k)) :: P(successor(k)) by MetaExistentialIntroduction
-    [σ(k)] is free in [σ(k)] |- S(k) :: (P(k) ⇒ P(successor(k))) by FreeMetavariable
+    [σ(k)] free in [σ(k)] |- S(k) :: (P(k) ⇒ P(successor(k))) by FreeMetavariable
   Therefore
     ∃[τ(successor(k))] [τ(successor(k))] |- MetaInduction(successor(k)) :: P(successor(k)) by MetaExistentialElimination
