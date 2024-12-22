@@ -1,6 +1,7 @@
+Variable n:ℕ
+
 Metavariable ρ:Frame
 Metavariable μ:Frame
-
 Metavariable τ(ℕ):Frame
 
 Metavariable R:Reference
@@ -17,9 +18,9 @@ Lemma (MetaBaseCase)
       [μ] |- R :: P(zero)
     Hence
       [μ] |- MetaInduction(zero) :: P(zero)
-      [τ(zero)] free in [τ(zero)] |- MetaInduction(zero) :: P(zero) by FreeMetavariable
+      [τ(zero)] is free in [τ(zero)] |- MetaInduction(zero) :: P(zero) by FreeMetavariable
     Then
       ∃[τ(zero)] [τ(zero)] |- MetaInduction(zero) :: P(zero) by MetaExistentialIntroduction
-    [ρ] free in [ρ] |- R :: P(zero) by FreeMetavariable
+    [ρ] is free in [ρ] |- R :: P(zero) by FreeMetavariable
   Therefore
     ∃[τ(zero)] [τ(zero)] |- MetaInduction(zero) :: P(zero) by MetaExistentialElimination
