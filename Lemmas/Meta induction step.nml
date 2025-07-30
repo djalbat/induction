@@ -2,7 +2,6 @@ Variable k:ℕ
 
 Metavariable σ(ℕ):Frame
 Metavariable λ(ℕ):Frame
-
 Metavariable τ(ℕ):Frame
 
 Metavariable S(ℕ):Reference 
