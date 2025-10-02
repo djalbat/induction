@@ -1,9 +1,9 @@
 Variable k:ℕ
 Variable n:ℕ
 
-Metavariable ρ:Frame
-Metavariable σ(ℕ):Frame
-Metavariable τ(ℕ):Frame
+Metavariable U:Frame
+Metavariable V(ℕ):Frame
+Metavariable W(ℕ):Frame
 
 Metavariable R:Reference
 Metavariable S(ℕ):Reference
@@ -12,13 +12,13 @@ Metavariable P(ℕ):Statement
 
 Rule (Induction)
   Premises
-    P(zero)
-    P(k) ⇒ P(successor(k))
+    P(𝘻𝘦𝘳𝘰)
+    P(k) ⇒ P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))
   Conclusion
     P(n)
   Proof
-    ∃[ρ] [ρ] |- R :: P(zero) by FramedExistentialIntroduction
-    ∃[σ(k)] [σ(k)] |- S(k) :: (P(k) ⇒ P(successor(k))) by FramedExistentialIntroduction
-    ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n) by ExistentialInduction
+    ∃[U] [U] |- R :: P(𝘻𝘦𝘳𝘰) by FramedExistentialIntroduction
+    ∃[V(k)] [V(k)] |- S(k) :: (P(k) ⇒ P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))) by FramedExistentialIntroduction
+    ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n) by ExistentialInduction
   Therefore
     P(n) by FRamedExistentialElimination

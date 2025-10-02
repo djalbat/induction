@@ -1,8 +1,8 @@
 Variable n:ℕ
 
-Metavariable ρ:Frame
-Metavariable μ:Frame
-Metavariable τ(ℕ):Frame
+Metavariable U:Frame
+Metavariable V:Frame
+Metavariable W(ℕ):Frame
 
 Metavariable R:Reference
 
@@ -10,17 +10,17 @@ Metavariable P(ℕ):Statement
 
 Lemma (MetaBaseCase)
   Suppose
-    ∃[ρ] [ρ] |- R :: P(zero)
+    ∃[U] [U] |- R :: P(𝘻𝘦𝘳𝘰)
   Then
-    ∃[τ(zero)] [τ(zero)] |- MetaInduction(zero) :: P(zero)
+    ∃[W(𝘻𝘦𝘳𝘰)] [W(𝘻𝘦𝘳𝘰)] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰)
   Proof
     Suppose
-      [μ] |- R :: P(zero)
+      [V] |- R :: P(𝘻𝘦𝘳𝘰)
     Hence
-      [μ] |- MetaInduction(zero) :: P(zero)
-      [τ(zero)] is free in [τ(zero)] |- MetaInduction(zero) :: P(zero) by FreeMetavariable
+      [V] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰)
+      [W(𝘻𝘦𝘳𝘰)] is 𝘧𝘳𝘦𝘦 in [W(𝘻𝘦𝘳𝘰)] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰) by FreeMetavariable
     Then
-      ∃[τ(zero)] [τ(zero)] |- MetaInduction(zero) :: P(zero) by MetaExistentialIntroduction
-    [ρ] is free in [ρ] |- R :: P(zero) by FreeMetavariable
+      ∃[W(𝘻𝘦𝘳𝘰)] [W(𝘻𝘦𝘳𝘰)] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰) by MetaExistentialIntroduction
+    [U] is 𝘧𝘳𝘦𝘦 in [U] |- R :: P(𝘻𝘦𝘳𝘰) by FreeMetavariable
   Therefore
-    ∃[τ(zero)] [τ(zero)] |- MetaInduction(zero) :: P(zero) by MetaExistentialElimination
+    ∃[W(𝘻𝘦𝘳𝘰)] [W(𝘻𝘦𝘳𝘰)] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰) by MetaExistentialElimination

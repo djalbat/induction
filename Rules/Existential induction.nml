@@ -1,9 +1,9 @@
 Variable k:ℕ
 Variable n:ℕ
 
-Metavariable ρ:Frame
-Metavariable σ(ℕ):Frame
-Metavariable τ(ℕ):Frame
+Metavariable U:Frame
+Metavariable V(ℕ):Frame
+Metavariable W(ℕ):Frame
 
 Metavariable R:Reference
 
@@ -12,25 +12,25 @@ Metavariable P(ℕ):Statement
 
 Rule (ExistentialInduction)
   Premises
-    ∃[ρ] [ρ] |- R :: P(zero)
-    ∃[σ(k)] [σ(k)] |- S(k) :: (P(k) ⇒ P(successor(k)))
+    ∃[U] [U] |- R :: P(𝘻𝘦𝘳𝘰)
+    ∃[V(k)] [V(k)] |- S(k) :: (P(k) ⇒ P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)))
   Conclusion
-    ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n)
+    ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n)
   Proof
-    n = zero ∨ n = successor(k) by ZeroOrSuccessor
+    n = 𝘻𝘦𝘳𝘰 ∨ n = 𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k) by ZeroOrSuccessor
     Suppose
-      n = zero
+      n = 𝘻𝘦𝘳𝘰
     Hence
-      ∃[τ(zero)] [τ(zero)] |- MetaInduction(zero) :: P(zero) by MetaBaseCase
+      ∃[W(𝘻𝘦𝘳𝘰)] [W(𝘻𝘦𝘳𝘰)] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰) by MetaBaseCase
     Then
-      ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n)
-    n = zero ⇒ ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n) by ConditionalProof
+      ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n)
+    n = 𝘻𝘦𝘳𝘰 ⇒ ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n) by ConditionalProof
     Suppose
-      n = successor(k)
+      n = 𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)
     Hence
-      ∃[τ(successor(k))] [τ(successor(k))] |- MetaInduction(successor(k)) :: P(successor(k)) by MetaInductionStep
+      ∃[W(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] [W(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) by MetaInductionStep
     Then
-      ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n)
-    n = successor(k) ⇒ ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n) by ConditionalProof
+      ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n)
+    n = 𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k) ⇒ ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n) by ConditionalProof
   Therefore
-    ∃[τ(n)] [τ(n)] |- MetaInduction(n) :: P(n) by ProofByCases
+    ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n) by ProofByCases

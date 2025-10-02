@@ -1,4 +1,4 @@
-Metavariable γ:Frame
+Metavariable V:Frame
 
 Metavariable P:Statement
 
@@ -8,10 +8,10 @@ Rule (FramedExistentialIntroduction)
   Premise
     P
   Conclusion
-    ∃[γ] [γ] |- G :: P
+    ∃[V] [V] |- G :: P
 
 Rule (FRamedExistentialElimination)
   Premise
-    ∃[γ] [γ] |- G :: P
+    ∃[V] [V] |- G :: P
   Conclusion
     P

@@ -8,15 +8,15 @@ Metavariable MetaInduction(ℕ):Reference
 
 Metavariable P(ℕ):Statement
 
-Metatheorem (MetaInduction(zero))
-  P(zero)
+Metatheorem (MetaInduction(𝘻𝘦𝘳𝘰))
+  P(𝘻𝘦𝘳𝘰)
   Proof
-    P(zero) from R
+    P(𝘻𝘦𝘳𝘰) by R
 
-Metatheorem (MetaInduction(successor(k)))
-  P(successor(k))
+Metatheorem (MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)))
+  P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))
   Proof
-    P(k) from MetaInduction(k)
-    P(k) ⇒ P(successor(k)) from S(k)
+    P(k) by MetaInduction(k)
+    P(k) ⇒ P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) by S(k)
   Therefore
-    P(successor(k)) by ModusPonens
+    P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) by ModusPonens
