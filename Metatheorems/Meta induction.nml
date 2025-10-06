@@ -1,12 +1,11 @@
 Variable k:ℕ
 Variable n:ℕ
 
+Metavariable P(ℕ):Statement
+
 Metavariable R:Reference
 Metavariable S(ℕ):Reference
-
 Metavariable MetaInduction(ℕ):Reference
-
-Metavariable P(ℕ):Statement
 
 Metatheorem (MetaInduction(𝘻𝘦𝘳𝘰))
   P(𝘻𝘦𝘳𝘰)

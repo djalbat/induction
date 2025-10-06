@@ -1,17 +1,17 @@
-Metavariable V:Frame
+Metavariable U:Frame
 
-Metavariable P:Statement
+Metavariable Q:Statement
 
-Metavariable G:Reference
+Metavariable R:Reference
 
 Rule (FramedExistentialIntroduction)
   Premise
-    P
+    Q
   Conclusion
-    ∃[V] [V] |- G :: P
+    ∃[U] [U] |- R :: Q
 
 Rule (FRamedExistentialElimination)
   Premise
-    ∃[V] [V] |- G :: P
+    ∃[U] [U] |- R :: Q
   Conclusion
-    P
+    Q
