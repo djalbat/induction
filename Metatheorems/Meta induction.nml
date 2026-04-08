@@ -5,6 +5,7 @@ Metavariable P(ℕ):Statement
 
 Metavariable R:Reference
 Metavariable S(ℕ):Reference
+
 Metavariable MetaInduction(ℕ):Reference
 
 Metatheorem (MetaInduction(𝘻𝘦𝘳𝘰))

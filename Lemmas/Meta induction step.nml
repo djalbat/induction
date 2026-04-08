@@ -1,8 +1,8 @@
 Variable k:ℕ
 
-Metavariable U(ℕ):Frame
-Metavariable V(ℕ):Frame
-Metavariable W(ℕ):Frame
+Metavariable F(ℕ):Frame
+Metavariable G(ℕ):Frame
+Metavariable H(ℕ):Frame
 
 Metavariable S(ℕ):Reference 
 
@@ -10,17 +10,17 @@ Metavariable P(ℕ):Statement
 
 Lemma (MetaInductionStep)
   Suppose
-    ∃[U(k)] [U(k)] |- S(k) :: (P(k) ⇒ P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)))
+    ∃[F(k)] [F(k)] |- S(k) :: (P(k) ⇒ P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)))
   Then
-    ∃[W(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] [W(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))
+    ∃[H(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] [H(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))
   Proof
     Suppose
-      [V(k)] |- S(k) :: (P(k) ⇒ P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)))
+      [G(k)] |- S(k) :: (P(k) ⇒ P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)))
     Hence
-      [V(k), MetaInduction(k) :: P(k)] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))
-      [W(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] is 𝘧𝘳𝘦𝘦 in [W(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) by FreeMetavariable
+      [G(k), MetaInduction(k) :: P(k)] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))
+      [H(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] is 𝘧𝘳𝘦𝘦 in [H(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) by FreeMetavariable
     Then
-      ∃[W(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] [W(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) by MetaExistentialIntroduction
-    [U(k)] is 𝘧𝘳𝘦𝘦 in [U(k)] |- S(k) :: (P(k) ⇒ P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))) by FreeMetavariable
+      ∃[H(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] [H(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) by MetaExistentialIntroduction
+    [F(k)] is 𝘧𝘳𝘦𝘦 in [F(k)] |- S(k) :: (P(k) ⇒ P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))) by FreeMetavariable
   Therefore
-    ∃[W(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] [W(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) by MetaExistentialElimination
+    ∃[H(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] [H(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) by MetaExistentialElimination

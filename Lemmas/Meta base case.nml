@@ -1,8 +1,6 @@
-Variable n:ℕ
-
-Metavariable U:Frame
-Metavariable V:Frame
-Metavariable W(ℕ):Frame
+Metavariable F:Frame
+Metavariable G:Frame
+Metavariable H:Frame
 
 Metavariable R:Reference
 
@@ -10,17 +8,17 @@ Metavariable P(ℕ):Statement
 
 Lemma (MetaBaseCase)
   Suppose
-    ∃[U] [U] |- R :: P(𝘻𝘦𝘳𝘰)
+    ∃[F] [F] |- R :: P(𝘻𝘦𝘳𝘰)
   Then
-    ∃[W(𝘻𝘦𝘳𝘰)] [W(𝘻𝘦𝘳𝘰)] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰)
+    ∃[H] [H] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰)
   Proof
     Suppose
-      [V] |- R :: P(𝘻𝘦𝘳𝘰)
+      [G] |- R :: P(𝘻𝘦𝘳𝘰)
     Hence
-      [V] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰)
-      [W(𝘻𝘦𝘳𝘰)] is 𝘧𝘳𝘦𝘦 in [W(𝘻𝘦𝘳𝘰)] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰) by FreeMetavariable
+      [G] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰)
+      [H] is 𝘧𝘳𝘦𝘦 in [H] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰) by FreeMetavariable
     Then
-      ∃[W(𝘻𝘦𝘳𝘰)] [W(𝘻𝘦𝘳𝘰)] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰) by MetaExistentialIntroduction
-    [U] is 𝘧𝘳𝘦𝘦 in [U] |- R :: P(𝘻𝘦𝘳𝘰) by FreeMetavariable
+      ∃[H] [H] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰) by MetaExistentialIntroduction
+    [F] is 𝘧𝘳𝘦𝘦 in [F] |- R :: P(𝘻𝘦𝘳𝘰) by FreeMetavariable
   Therefore
-    ∃[W(𝘻𝘦𝘳𝘰)] [W(𝘻𝘦𝘳𝘰)] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰) by MetaExistentialElimination
+    ∃[H] [H] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰) by MetaExistentialElimination

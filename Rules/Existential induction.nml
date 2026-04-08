@@ -1,36 +1,36 @@
 Variable k:ℕ
 Variable n:ℕ
 
-Metavariable U:Frame
-Metavariable V(ℕ):Frame
-Metavariable W(ℕ):Frame
+Metavariable F:Frame
+Metavariable G(ℕ):Frame
+Metavariable H(ℕ):Frame
 
 Metavariable R:Reference
-
 Metavariable S(ℕ):Reference
+
 Metavariable P(ℕ):Statement
 
 Rule (ExistentialInduction)
   Premises
-    ∃[U] [U] |- R :: P(𝘻𝘦𝘳𝘰)
-    ∃[V(k)] [V(k)] |- S(k) :: (P(k) ⇒ P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)))
+    ∃[F] [F] |- R :: P(𝘻𝘦𝘳𝘰)
+    ∃[G(k)] [G(k)] |- S(k) :: (P(k) ⇒ P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)))
   Conclusion
-    ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n)
+    ∃[H(n)] [H(n)] |- MetaInduction(n) :: P(n)
   Proof
     n = 𝘻𝘦𝘳𝘰 ∨ n = 𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k) by ZeroOrSuccessor
     Suppose
       n = 𝘻𝘦𝘳𝘰
     Hence
-      ∃[W(𝘻𝘦𝘳𝘰)] [W(𝘻𝘦𝘳𝘰)] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰) by MetaBaseCase
+      ∃[H(𝘻𝘦𝘳𝘰)] [H(𝘻𝘦𝘳𝘰)] |- MetaInduction(𝘻𝘦𝘳𝘰) :: P(𝘻𝘦𝘳𝘰) by MetaBaseCase
     Then
-      ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n)
-    n = 𝘻𝘦𝘳𝘰 ⇒ ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n) by ConditionalProof
+      ∃[H(n)] [H(n)] |- MetaInduction(n) :: P(n)
+    n = 𝘻𝘦𝘳𝘰 ⇒ ∃[H(n)] [H(n)] |- MetaInduction(n) :: P(n) by ConditionalProof
     Suppose
       n = 𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)
     Hence
-      ∃[W(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] [W(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) by MetaInductionStep
+      ∃[H(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] [H(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k))] |- MetaInduction(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) :: P(𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k)) by MetaInductionStep
     Then
-      ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n)
-    n = 𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k) ⇒ ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n) by ConditionalProof
+      ∃[H(n)] [H(n)] |- MetaInduction(n) :: P(n)
+    n = 𝘴𝘶𝘤𝘤𝘦𝘴𝘴𝘰𝘳(k) ⇒ ∃[H(n)] [H(n)] |- MetaInduction(n) :: P(n) by ConditionalProof
   Therefore
-    ∃[W(n)] [W(n)] |- MetaInduction(n) :: P(n) by ProofByCases
+    ∃[H(n)] [H(n)] |- MetaInduction(n) :: P(n) by ProofByCases
